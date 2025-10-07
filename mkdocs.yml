@@ -5,8 +5,6 @@ site_author: Subhajit Bhar
 
 extra:
   meta:
-    - name: google-site-verification
-      content: 1-1ZwmgYYVG5Ia5Fyzhax61cVRei91djOnMtacPe_9k
     - name: author
       content: Subhajit Bhar
     - name: robots
