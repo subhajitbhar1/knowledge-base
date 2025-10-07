@@ -1,6 +1,13 @@
 ---
 title: Python Knowledge Base
 description: Comprehensive guide to Python concepts with clear explanations and practical examples
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, programming, tutorials, lists, dictionaries, tuples, sets
+  - name: Publisher
+    content: Subhajit Bhar
 ---
 
 # Python Knowledge Base

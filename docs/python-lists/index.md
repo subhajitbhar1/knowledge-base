@@ -1,6 +1,13 @@
 ---
 title: Python Lists - Complete Guide
 description: Comprehensive collection of Python list concepts, operations, and best practices
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, arrays, collections, data structures
+  - name: Publisher
+    content: Subhajit Bhar
 ---
 
 # Python Lists
