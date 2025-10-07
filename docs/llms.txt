@@ -1,0 +1,33 @@
+# llms.txt - Machine-readable information about this site
+# Learn more: https://llmstxt.org/
+
+# Knowledge Base by Subhajit Bhar
+> A comprehensive knowledge base covering Python programming, data structures, and more.
+> Created and maintained by Subhajit Bhar - Freelance Data Scientist specializing in OCR, NLP, LLM, and RAG.
+
+## Site Information
+- **URL**: https://kb.subhajitbhar.com/
+- **Author**: Subhajit Bhar
+- **Topics**: Python, Data Structures, Lists, Tuples, Programming Tutorials
+- **Format**: Technical blog posts with code examples and practical explanations
+
+## Content Structure
+This knowledge base is organized by Python topics:
+- Python Lists: 34 articles covering basics, operations, performance, and best practices
+- Python Tuples: 33 articles covering fundamentals, immutability, methods, and use cases
+- More topics coming soon
+
+## Usage Guidelines
+- All content is educational and free to access
+- Code examples are runnable and tested
+- Articles follow a conversational, practical approach
+- Each article includes examples, gotchas, and FAQs
+
+## Contact
+- Website: https://kb.subhajitbhar.com/
+- Author: Subhajit Bhar
+- Specialization: OCR, NLP, LLM, RAG, Python Programming
+
+## Licensing
+Educational content meant for learning and reference.
+
