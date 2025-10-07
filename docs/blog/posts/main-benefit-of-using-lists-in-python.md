@@ -10,43 +10,35 @@ updated: "2025-10-07"
 ---
 
 # What is the main benefit of using lists in Python?
+
 <!-- more -->
 
 !!! info "In short"
     Flexibility. Lists grow, shrink, and change without you worrying about size or type (though mixing types is usually a bad idea). They're mutable but ordered, simple but powerful. You get fast position-based access, tons of built-in methods (append, sort, reverse), and they work everywhere in Python. Lists don't require upfront size declarations or type specifications—just start with `[]` and build as you go. They're the Swiss Army knife of data structures: not always the absolute best tool, but good enough for most jobs and familiar to everyone.
 
-## Example (runnable)
+Here's flexibility in action:
 
 ```python
 # Flexibility in action
-<!-- more -->
 data = []
 
 # Grow dynamically
-<!-- more -->
 for i in range(5):
     data.append(i)
 
 # Mixed types (works, but usually avoid)
-<!-- more -->
 data.append("text")
 data.append([1, 2])
 
 # Built-in operations
-<!-- more -->
 data.sort(key=str)  # Sort using string representation
 print(data)
 
 # Fast access
-<!-- more -->
 print(f"First: {data[0]}, Last: {data[-1]}")
 ```
 
-**Expected output:**
-```
-[0, 1, 2, 3, 4, [1, 2], 'text']
-First: 0, Last: text
-```
+In the code above, we start empty and build up `[0, 1, 2, 3, 4, 'text', [1, 2]]`. The sort works by converting everything to strings. We get instant access to first and last elements.
 
 That mix of types works but makes the code harder to reason about. Stick to one type when you can.
 

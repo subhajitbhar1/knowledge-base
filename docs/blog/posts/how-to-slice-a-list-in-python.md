@@ -10,41 +10,31 @@ updated: "2025-10-07"
 ---
 
 # How do you slice a list in Python?
+
 <!-- more -->
 
 !!! info "In short"
     Slicing pulls out chunks of a list with `[start:end:step]`. It includes the start position but stops *before* end. So `list[1:4]` gives you indices 1, 2, 3. Leave parts out for defaults: `[:3]` is first three, `[2:]` is everything from index 2 onward, `[:]` copies the whole thing. Negatives work: `[-3:]` grabs the last three items. The step lets you skip: `[::2]` is every other item, `[::-1]` reverses the list. Best part? Slicing never crashes—bad indices just give you an empty list or clip to what exists.
 
-## Example (runnable)
+Here are some common slicing patterns:
 
 ```python
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # Basic slicing
-<!-- more -->
 print(numbers[2:5])      # [2, 3, 4]
 print(numbers[:4])       # First 4
 print(numbers[6:])       # From 6 to end
 
 # With step
-<!-- more -->
 print(numbers[::2])      # Every other
 print(numbers[1::2])     # Odd indices
 
 # Reverse
-<!-- more -->
 print(numbers[::-1])
 ```
 
-**Expected output:**
-```
-[2, 3, 4]
-[0, 1, 2, 3]
-[6, 7, 8, 9]
-[0, 2, 4, 6, 8]
-[1, 3, 5, 7, 9]
-[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-```
+Running the code above, `numbers[2:5]` extracts `[2, 3, 4]`, `[:4]` gives the first four `[0, 1, 2, 3]`, and `[6:]` gets everything from 6 onward. The step parameter `[::2]` picks every other element: `[0, 2, 4, 6, 8]`. And that `[::-1]` trick reverses the entire list.
 
 That `[::-1]` trick for reversing is a Python classic. Reads weird, works great.
 

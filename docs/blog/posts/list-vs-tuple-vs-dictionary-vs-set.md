@@ -10,45 +10,35 @@ updated: "2025-10-07"
 ---
 
 # When to use list vs tuple vs dictionary vs set in Python?
+
 <!-- more -->
 
 !!! info "In short"
     **Lists** for ordered, changeable sequences (your default). **Tuples** for fixed structures that shouldn't change. **Dicts** for key-value lookups. **Sets** for unique items with fast membership tests. Lists and tuples keep order; sets don't (though dicts do now in 3.7+). Lists and dicts are mutable; tuples are immutable. Ask yourself: Need order? Can it change? Looking up by key? Must items be unique? One question usually makes the choice obvious. When in doubt, start with a list and refactor if needed.
 
-## Example (runnable)
+Here's each structure in action:
 
 ```python
 # List: ordered, mutable, duplicates OK
-<!-- more -->
 tasks = ["code", "test", "deploy", "test"]
 tasks.append("monitor")
 print(f"List: {tasks}")
 
 # Tuple: immutable structure
-<!-- more -->
 point = (10, 20, 30)
 print(f"Tuple: {point}")
 
 # Dict: key-value lookup
-<!-- more -->
 config = {"host": "localhost", "port": 8080}
 print(f"Dict port: {config['port']}")
 
 # Set: unique items, fast membership
-<!-- more -->
 tags = {"python", "coding", "python"}  # Dup removed
 print(f"Set: {tags}")
 print(f"'python' in set: {'python' in tags}")
 ```
 
-**Expected output:**
-```
-List: ['code', 'test', 'deploy', 'test', 'monitor']
-Tuple: (10, 20, 30)
-Dict port: 8080
-Set: {'coding', 'python'}
-'python' in set: True
-```
+Running this shows how each behaves: the list keeps duplicates `['code', 'test', 'deploy', 'test', 'monitor']`, the tuple stays fixed at `(10, 20, 30)`, the dict provides instant lookup with `8080`, and the set automatically deduplicates to `{'coding', 'python'}`.
 
 Each has its lane. Use the right tool for the job.
 

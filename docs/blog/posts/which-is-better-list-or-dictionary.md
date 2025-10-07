@@ -10,16 +10,16 @@ updated: "2025-10-07"
 ---
 
 # Which is better — list or dictionary in Python?
+
 <!-- more -->
 
 !!! info "In short"
     Neither. They're tools for different jobs. Lists are for ordered sequences you access by position. Dicts are for data you look up by unique keys. It's like asking "which is better, a screwdriver or a hammer?" Lists are simpler and lighter for small collections. Dicts give you O(1) lookups instead of O(n). The real question: are you asking "what's at position 5?" (list) or "what's the value for this ID/name?" (dict). Match your data structure to your access pattern, not abstract notions of "better."
 
-## Example (runnable)
+Let me show you when each fits:
 
 ```python
 # List: position-based, ordered processing
-<!-- more -->
 tasks = ["Write code", "Test code", "Deploy"]
 for i, task in enumerate(tasks, 1):
     print(f"{i}. {task}")
@@ -27,7 +27,6 @@ for i, task in enumerate(tasks, 1):
 print("---")
 
 # Dict: lookup by identifier
-<!-- more -->
 employees = {
     "E001": "Alice",
     "E002": "Bob",
@@ -36,20 +35,11 @@ employees = {
 print(f"Employee E002: {employees['E002']}")
 
 # Combining both is fine
-<!-- more -->
 task_status = {"Write code": "done", "Test code": "in progress"}
 print(task_status.get("Test code"))
 ```
 
-**Expected output:**
-```
-1. Write code
-2. Test code
-3. Deploy
----
-Employee E002: Bob
-in progress
-```
+In the code above, the list naturally fits numbered tasks: "1. Write code", "2. Test code", "3. Deploy". The dict makes employee lookup instant—we ask for "E002" and get "Bob". And that last line shows you can mix approaches: a dict of task statuses works great.
 
 See? Different access patterns, different structures. Use what fits the question you're asking.
 

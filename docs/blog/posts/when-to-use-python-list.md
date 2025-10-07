@@ -10,44 +10,36 @@ updated: "2025-10-07"
 ---
 
 # When should you use a Python list?
+
 <!-- more -->
 
 !!! info "In short"
     Use a list when you need ordered items that might change, and you're mainly accessing them by position or looping through everything. Collecting results in a loop? List. Processing items one by one? List. Building a stack (append/pop from end)? List. They're your default for "I need to store multiple things in order." But skip lists if you're constantly checking whether items exist (use a set), looking things up by name or ID (use a dict), or the data shouldn't change (use a tuple). When in doubt, start with a list—it's rarely wrong.
 
-## Example (runnable)
+Here's when lists shine and when they don't:
 
 ```python
 # Good use case: collecting results
-<!-- more -->
 results = []
 for i in range(5):
     results.append(i ** 2)
 print(results)
 
 # Good: maintaining order
-<!-- more -->
 queue = ["first", "second", "third"]
 current = queue.pop(0)
 print(f"Processing: {current}")
 
 # Bad pattern: frequent lookups (use set instead)
-<!-- more -->
 # if item in huge_list:  # This is slow!
 
 # Better for lookups
-<!-- more -->
 seen = set()
 seen.add("item")
 print("item" in seen)  # Fast!
 ```
 
-**Expected output:**
-```
-[0, 1, 4, 9, 16]
-Processing: first
-True
-```
+In the code above, lists work perfectly for collecting those squares: `[0, 1, 4, 9, 16]`. The queue pattern processes "first" and leaves the rest. But that commented-out lookup? On a big list, it's painfully slow. The set version checks membership instantly.
 
 See how lists shine for sequential operations but struggle with lookups?
 

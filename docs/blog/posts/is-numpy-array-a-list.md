@@ -10,48 +10,37 @@ updated: "2025-10-07"
 ---
 
 # Is a NumPy array a list?
+
 <!-- more -->
 
 !!! info "In short"
     Nope. NumPy arrays are a completely different beast, even though they look similar. Arrays are fixed-type (all elements must be the same, like all floats), while lists accept mixed types. Arrays support vectorized math—`array * 2` multiplies every element, but `list * 2` just repeats the list. Arrays are 10-100x faster for numeric work and use way less memory. Convert between them with `list(array)` or `np.array(list)`. Use arrays for math, science, and data work. Use lists for general Python programming. They're cousins, not twins.
 
-## Example (runnable)
+Let me show you the key differences:
 
 ```python
 import numpy as np
 
 # Python list
-<!-- more -->
 py_list = [1, 2, 3, 4, 5]
 # py_list * 2  # Would give [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
-<!-- more -->
 
 # NumPy array
-<!-- more -->
 np_array = np.array([1, 2, 3, 4, 5])
 doubled = np_array * 2  # Vectorized operation
 print(doubled)
 
 # Different types
-<!-- more -->
 print(f"List: {type(py_list)}")
 print(f"Array: {type(np_array)}")
 print(f"Array dtype: {np_array.dtype}")
 
 # Convert back
-<!-- more -->
 back_to_list = list(np_array)
 print(back_to_list)
 ```
 
-**Expected output:**
-```
-[ 2  4  6  8 10]
-List: <class 'list'>
-Array: <class 'numpy.ndarray'>
-Array dtype: int64
-[1, 2, 3, 4, 5]
-```
+Running this code, the NumPy multiplication gives `[ 2  4  6  8 10]`—each element doubled. The types show `<class 'list'>` vs `<class 'numpy.ndarray'>`. Converting back to a list produces `[1, 2, 3, 4, 5]`.
 
 That vectorization is the magic. No loops needed, just `* 2` and done.
 

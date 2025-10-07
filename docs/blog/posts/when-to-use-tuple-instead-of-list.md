@@ -10,21 +10,20 @@ updated: "2025-10-07"
 ---
 
 # When would you use a tuple instead of a list?
+
 <!-- more -->
 
 !!! info "In short"
     Use tuples when the data shouldn't change—coordinates like (x, y), RGB colors, function returns with multiple values, or database rows. Tuples say "this structure is fixed" to anyone reading your code. They can be dict keys and set members (because they're hashable); lists can't. Tuples are a hair faster and lighter on memory, but that's rarely the deciding factor. Choose tuples when immutability is the point—either for safety (preventing accidental changes) or because you need hashability. If you catch yourself wanting to modify items, you probably need a list.
 
-## Example (runnable)
+Here's when tuples shine:
 
 ```python
 # Tuple: fixed structure
-<!-- more -->
 point = (10, 20)  # x, y coordinates
 rgb = (255, 128, 0)
 
 # Can use as dict key
-<!-- more -->
 locations = {
     (0, 0): "origin",
     (10, 20): "point A"
@@ -32,23 +31,16 @@ locations = {
 print(locations[point])
 
 # Tuple unpacking
-<!-- more -->
 x, y = point
 print(f"X: {x}, Y: {y}")
 
 # List: mutable collection
-<!-- more -->
 scores = [85, 92, 78]
 scores.append(90)  # Can modify
 print(scores)
 ```
 
-**Expected output:**
-```
-point A
-X: 10, Y: 20
-[85, 92, 78, 90]
-```
+In the above code, the tuple `(10, 20)` works as a dict key, which lists can't do. We unpack it cleanly into `x` and `y` variables. Meanwhile, the list accepts new items freely.
 
 That dict key usage is huge—you can't do that with lists. Tuples unlock whole patterns.
 

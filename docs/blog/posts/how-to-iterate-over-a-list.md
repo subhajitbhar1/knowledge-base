@@ -10,52 +10,37 @@ updated: "2025-10-07"
 ---
 
 # How do you iterate over a list in Python?
+
 <!-- more -->
 
 !!! info "In short"
     The Python way: `for item in my_list:`. Clean, readable, does what it says. Need the index too? `for i, item in enumerate(my_list):` gives you both. Only reach for while loops if you need to skip ahead or jump around dynamically. Coming from other languages, you might want to write `for i in range(len(my_list)):` but that's un-Pythonic—iterate over items directly. For processing and transforming, list comprehensions often read better: `[process(x) for x in my_list]`. Simple patterns work best.
 
-## Example (runnable)
+Here are the main ways to loop through a list:
 
 ```python
 fruits = ["apple", "banana", "cherry"]
 
 # Basic iteration
-<!-- more -->
 for fruit in fruits:
     print(fruit)
 
 print("---")
 
 # With index
-<!-- more -->
 for i, fruit in enumerate(fruits):
     print(f"{i}: {fruit}")
 
 print("---")
 
 # While loop (less common)
-<!-- more -->
 i = 0
 while i < len(fruits):
     print(fruits[i].upper())
     i += 1
 ```
 
-**Expected output:**
-```
-apple
-banana
-cherry
----
-0: apple
-1: banana
-2: cherry
----
-APPLE
-BANANA
-CHERRY
-```
+In the above example, the basic loop prints each fruit on its own line. The `enumerate()` version gives us numbered output: "0: apple", "1: banana", "2: cherry". And the while loop (which you'll rarely need) prints uppercased versions.
 
 See how the `enumerate()` version is cleaner than manually tracking an index variable.
 

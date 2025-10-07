@@ -10,16 +10,16 @@ updated: "2025-10-07"
 ---
 
 # What is [-1] in a Python list?
+
 <!-- more -->
 
 !!! info "In short"
     `[-1]` grabs the last item in the list. Simple as that. Negative indices count from the end: `-1` is last, `-2` is second-to-last, and so on. It's way cleaner than writing `list[len(list) - 1]` every time you need the last element. Works on any sequence—lists, tuples, strings, whatever. Empty list? You'll get an `IndexError`, same as with regular indices. But for non-empty lists, `[-1]` is your quick shortcut to "give me the last thing."
 
-## Example (runnable)
+Let me show you negative indexing in action:
 
 ```python
 # Negative indexing
-<!-- more -->
 numbers = [10, 20, 30, 40, 50]
 
 print(numbers[-1])   # Last element
@@ -27,24 +27,15 @@ print(numbers[-2])   # Second to last
 print(numbers[-5])   # First element (same as [0])
 
 # Works on strings too
-<!-- more -->
 text = "Hello"
 print(text[-1])      
 
 # Last element without knowing length
-<!-- more -->
 last = numbers[-1]
 print(f"Last: {last}")
 ```
 
-**Expected output:**
-```
-50
-40
-10
-o
-Last: 50
-```
+In the code above, `numbers[-1]` gives us `50`, `numbers[-2]` gives `40`, and `numbers[-5]` reaches all the way back to the first element, `10`. It even works on strings—`text[-1]` returns `'o'`.
 
 Notice `-5` gets you the first element. Count backwards from the end: -1, -2, -3, -4, -5.
 

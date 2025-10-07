@@ -10,45 +10,36 @@ updated: "2025-10-07"
 ---
 
 # What are the disadvantages of using lists in Python?
+
 <!-- more -->
 
 !!! info "In short"
     Lists are slow for searching—checking `if item in list` walks through every element (O(n)). Inserting or deleting from the middle is also slow because Python has to shift everything. They use more memory than tuples or specialized structures because they over-allocate for growth. Lists aren't thread-safe, can't be dict keys (because they're mutable), and are terrible for numeric computation compared to NumPy arrays. They're general-purpose, which means they're not optimized for any specific use case. When performance matters, reach for specialized tools: sets for lookups, deques for queues, tuples for immutable data.
 
-## Example (runnable)
+Let me show you where lists struggle:
 
 ```python
 # Slow lookup (O(n))
-<!-- more -->
 large_list = list(range(100000))
 print(50000 in large_list)  # Checks up to 50000 items
 
 # Slow insertion at start (O(n))
-<!-- more -->
 items = [1, 2, 3, 4, 5]
 items.insert(0, 0)  # Shifts everything
 
 # Memory overhead
-<!-- more -->
 import sys
 print(f"List: {sys.getsizeof([1,2,3])} bytes")
 print(f"Tuple: {sys.getsizeof((1,2,3))} bytes")
 
 # Can't be dict keys
-<!-- more -->
 try:
     d = {[1, 2]: "value"}
 except TypeError as e:
     print(f"Error: {e}")
 ```
 
-**Expected output:**
-```
-True
-List: 80 bytes
-Tuple: 64 bytes
-Error: unhashable type: 'list'
-```
+Running this code, the lookup returns `True` but only after checking thousands of items. The list uses 80 bytes while the tuple only needs 64. And trying to use a list as a dict key fails with "unhashable type: 'list'".
 
 That 16-byte difference adds up when you're storing millions of small sequences.
 

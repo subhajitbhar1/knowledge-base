@@ -10,16 +10,16 @@ updated: "2025-10-07"
 ---
 
 # How do you access elements in a Python list?
+
 <!-- more -->
 
 !!! info "In short"
     Square brackets with the position: `my_list[0]` gets the first item. Python counts from zero, so `[0]` is first, `[1]` is second, and so on. Negative numbers count backwards: `[-1]` is last, `[-2]` is second-to-last. Try to access something that doesn't exist and you'll get an `IndexError`. To be safe, check the length first or use slicing (which doesn't crash on bad indices). It's simple once you remember: zero is the beginning, negatives work backwards from the end.
 
-## Example (runnable)
+Here's how indexing works in practice:
 
 ```python
 # Basic indexing
-<!-- more -->
 fruits = ["apple", "banana", "cherry", "date"]
 
 print(fruits[0])    # First element
@@ -28,19 +28,11 @@ print(fruits[-1])   # Last element
 print(fruits[-2])   # Second to last
 
 # Length check before accessing
-<!-- more -->
 if len(fruits) > 3:
     print(fruits[3])
 ```
 
-**Expected output:**
-```
-apple
-cherry
-date
-cherry
-date
-```
+Running this code prints "apple" (first), "cherry" (third), "date" (last), and "cherry" again (second-to-last). The length check safely accesses index 3, which gives us "date".
 
 That negative indexing is genuinely handy—no need to calculate `len(list) - 1` for the last item.
 

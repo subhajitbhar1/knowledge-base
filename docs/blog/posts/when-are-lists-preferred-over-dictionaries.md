@@ -10,16 +10,16 @@ updated: "2025-10-07"
 ---
 
 # In what situations are lists preferred over dictionaries?
+
 <!-- more -->
 
 !!! info "In short"
     Pick lists when position matters more than identity. You're processing items in order? List. Accessing by numeric index like "give me the 5th item"? List. You don't have natural keys for lookup? List. They're perfect for sequences (time-series, ordered steps, history), collecting loop results, and when all items are the same type. Lists are simpler and lighter when you don't need the key-value relationship. If you find yourself iterating through all items anyway, a list is probably the right call. Save dicts for when you're looking things up by name, ID, or property.
 
-## Example (runnable)
+Here's when each structure makes sense:
 
 ```python
 # List: ordered processing
-<!-- more -->
 temperatures = [20, 22, 21, 23, 25]
 for i, temp in enumerate(temperatures):
     print(f"Day {i+1}: {temp}°C")
@@ -27,27 +27,15 @@ for i, temp in enumerate(temperatures):
 print("---")
 
 # List: position-based access
-<!-- more -->
 scores = [85, 92, 78]
 print(f"First score: {scores[0]}")
 
 # Dict: lookup by identifier
-<!-- more -->
 students = {"Alice": 85, "Bob": 92, "Carol": 78}
 print(f"Alice's score: {students['Alice']}")
 ```
 
-**Expected output:**
-```
-Day 1: 20°C
-Day 2: 22°C
-Day 3: 21°C
-Day 4: 23°C
-Day 5: 25°C
----
-First score: 85
-Alice's score: 85
-```
+In the code above, the list works perfectly for daily temperatures in sequence. We naturally ask "what's the temperature on day 3?" For scores by position, lists win. But when we need Alice's specific score, the dictionary shines—we look it up by name, not position.
 
 Notice how lists win when the question is "what's next?" but dicts win for "who scored 85?"
 
