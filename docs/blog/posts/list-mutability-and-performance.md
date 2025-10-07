@@ -10,31 +10,29 @@ updated: "2025-10-07"
 ---
 
 # How does list mutability affect performance?
+
 <!-- more -->
 
 !!! info "In short"
     Mutability enables fast in-place operations—`.append()`, `.sort()`, `.reverse()` modify directly without copying, saving time and memory. But it's a double-edged sword. When functions might modify shared lists, you end up making defensive copies (`list.copy()`), which negates the speed benefit. Lists over-allocate memory for growth, using more RAM than tuples. For read-only data, tuples are lighter and enable optimizations. The trade-off: mutability gives you efficient modifications but at the cost of higher memory use and potential hidden copies when you need safety.
 
-## Example (runnable)
+Let me show you the trade-offs:
 
 ```python
 import sys
 
 # In-place modification (efficient)
-<!-- more -->
 numbers = [1, 2, 3, 4, 5]
 numbers.reverse()  # O(n), no new list
 print(numbers)
 
 # Memory comparison
-<!-- more -->
 list_obj = [1, 2, 3, 4, 5]
 tuple_obj = (1, 2, 3, 4, 5)
 print(f"List: {sys.getsizeof(list_obj)} bytes")
 print(f"Tuple: {sys.getsizeof(tuple_obj)} bytes")
 
 # Defensive copy cost
-<!-- more -->
 def process(items):
     safe = items.copy()  # Extra work due to mutability
     safe.sort()
@@ -44,13 +42,7 @@ result = process([3, 1, 2])
 print(result)
 ```
 
-**Expected output:**
-```
-[5, 4, 3, 2, 1]
-List: 104 bytes
-Tuple: 88 bytes
-[1, 2, 3]
-```
+In the code above, reversing the list happens instantly in-place: `[5, 4, 3, 2, 1]`. The memory check shows lists use 104 bytes vs tuples at 88 bytes—that's the cost of flexibility. The function makes a defensive copy to avoid surprising mutations.
 
 That 16-byte difference is the cost of flexibility—over-allocation for future growth.
 
