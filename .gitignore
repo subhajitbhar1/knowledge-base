@@ -42,3 +42,4 @@ wheels/
 Thumbs.db
 
 docs/blog/posts/is-list-a-data-type-in-python.md
+libcairo.2.dylib

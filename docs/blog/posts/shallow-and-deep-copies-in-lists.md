@@ -10,18 +10,18 @@ updated: "2025-10-07"
 ---
 
 # How do shallow and deep copies work in Python lists?
+
 <!-- more -->
 
 !!! info "In short"
     Shallow copy creates a new list but shares the objects inside—use `list.copy()`, `list[:]`, or `list(original)`. Deep copy recursively copies everything, including nested objects—use `copy.deepcopy()`. For simple lists of immutable stuff (numbers, strings), shallow is fine and fast. But for lists containing mutable objects (other lists, dicts), shallow copies share those inner objects—change one, see it in both. Deep copies are slower but give true independence. Most of the time shallow is enough. Reach for deep only when you have nested structures and need full separation.
 
-## Example (runnable)
+Let me show you the critical difference:
 
 ```python
 import copy
 
 # Shallow copy: inner lists are shared
-<!-- more -->
 original = [[1, 2], [3, 4]]
 shallow = original.copy()
 shallow[0][0] = 99  # Modifies original too!
@@ -31,7 +31,6 @@ print(f"Shallow: {shallow}")
 print("---")
 
 # Deep copy: completely independent
-<!-- more -->
 original2 = [[1, 2], [3, 4]]
 deep = copy.deepcopy(original2)
 deep[0][0] = 99
@@ -39,14 +38,7 @@ print(f"Original2: {original2}")
 print(f"Deep: {deep}")
 ```
 
-**Expected output:**
-```
-Original: [[99, 2], [3, 4]]
-Shallow: [[99, 2], [3, 4]]
----
-Original2: [[1, 2], [3, 4]]
-Deep: [[99, 2], [3, 4]]
-```
+Running this code, the shallow copy shows `[[99, 2], [3, 4]]` for both original and copy—the inner lists are shared! But the deep copy keeps `original2` as `[[1, 2], [3, 4]]` while only `deep` becomes `[[99, 2], [3, 4]]`. Complete independence.
 
 See how the shallow copy's change bled through to the original? That's the gotcha.
 
