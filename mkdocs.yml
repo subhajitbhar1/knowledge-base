@@ -1,0 +1,57 @@
+site_name: Knowledge Base
+site_description: A simple knowledge base blog
+site_author: Your Name
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - blog:
+      blog_dir: blog
+      blog_toc: true
+      archive: false
+      categories: false
+      post_url_format: "{slug}"
+      draft_if_future_date: true
+      authors_profiles: false
+      pagination_per_page: 10
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Blog:
+    - blog/index.md
+
+watch: 
+    - .
