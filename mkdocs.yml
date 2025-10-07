@@ -1,6 +1,6 @@
 site_name: Knowledge Base
 site_description: A simple knowledge base blog
-site_author: Your Name
+site_author: Subhajit Bhar
 
 theme:
   name: material
@@ -28,13 +28,12 @@ theme:
 plugins:
   - search
   - blog:
-      blog_dir: blog
+      blog_dir: .
       blog_toc: true
       archive: false
       categories: false
       post_url_format: "{slug}"
       draft_if_future_date: true
-      authors_profiles: false
       pagination_per_page: 10
 
 markdown_extensions:
@@ -47,11 +46,6 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - md_in_html
-
-nav:
-  - Home: index.md
-  - Blog:
-    - blog/index.md
 
 watch: 
     - .
