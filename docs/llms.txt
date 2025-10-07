@@ -15,6 +15,7 @@
 This knowledge base is organized by Python topics:
 - Python Lists: 34 articles covering basics, operations, performance, and best practices
 - Python Tuples: 33 articles covering fundamentals, immutability, methods, and use cases
+- Python Async & Asyncio: 29 articles covering async/await, concurrency, performance, and best practices
 - More topics coming soon
 
 ## Usage Guidelines

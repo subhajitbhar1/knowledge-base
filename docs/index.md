@@ -20,6 +20,7 @@ A curated collection of Python programming concepts explained clearly. Each topi
 
 - [Python Lists](python-lists/index.md) - 34 in-depth articles
 - [Python Tuples](python-tuples/index.md) - 33 in-depth articles
+- [Python Async & Asyncio](python-async/index.md) - 29 in-depth articles
 - [Python Dictionaries](#) - Coming soon
 - [Python Sets](#) - Coming soon
 
