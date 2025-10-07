@@ -1,10 +1,13 @@
 ---
 title: "What is [-1] in a Python list?"
 description: "Understand negative indexing in Python: how [-1] accesses the last element and why it's a powerful shorthand."
-tags:
-  - python
-  - lists
-  - indexing
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, indexing
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

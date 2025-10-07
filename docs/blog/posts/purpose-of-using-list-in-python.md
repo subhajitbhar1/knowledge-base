@@ -1,10 +1,13 @@
 ---
 title: "What is the purpose of using a list in Python?"
 description: "Learn why Python lists are essential for storing ordered collections, processing sequences, and building dynamic data structures."
-tags:
-  - python
-  - lists
-  - use-cases
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, use-cases
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

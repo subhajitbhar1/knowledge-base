@@ -1,10 +1,13 @@
 ---
 title: "When to use list vs tuple vs dictionary vs set in Python?"
 description: "Complete comparison guide: choose the right Python data structure based on mutability, order, uniqueness, and access patterns."
-tags:
-  - python
-  - lists
-  - comparison
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, comparison
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

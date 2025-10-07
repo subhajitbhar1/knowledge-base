@@ -1,10 +1,13 @@
 ---
 title: "What is a Python list?"
 description: "Learn exactly what Python lists are, how they store data, and why they're the most versatile built-in data structure for ordered collections."
-tags:
-  - python
-  - lists
-  - basics
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, basics
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

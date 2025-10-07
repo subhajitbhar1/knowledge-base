@@ -1,10 +1,13 @@
 ---
 title: "How do I sort a list in Python?"
 description: "Master Python list sorting: sort() vs sorted(), reverse order, custom keys, and performance considerations for ordering lists."
-tags:
-  - python
-  - lists
-  - sorting
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, sorting
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

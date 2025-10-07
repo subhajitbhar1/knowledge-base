@@ -1,10 +1,13 @@
 ---
 title: "How do you create a list in Python?"
 description: "Master all methods for creating Python lists: literals, constructors, comprehensions, and converting from other data types."
-tags:
-  - python
-  - lists
-  - creation
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, creation
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

@@ -1,10 +1,13 @@
 ---
 title: "Are lists or dictionaries faster in Python?"
 description: "Compare performance of lists vs dictionaries: when each excels for lookups, insertions, and different operation types."
-tags:
-  - python
-  - lists
-  - performance
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, performance
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

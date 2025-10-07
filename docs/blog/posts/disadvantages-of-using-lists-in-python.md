@@ -1,10 +1,13 @@
 ---
 title: "What are the disadvantages of using lists in Python?"
 description: "Learn the limitations of Python lists: performance issues, memory overhead, and when to use alternatives instead."
-tags:
-  - python
-  - lists
-  - limitations
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, limitations
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

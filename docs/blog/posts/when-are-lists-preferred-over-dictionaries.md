@@ -1,10 +1,13 @@
 ---
 title: "In what situations are lists preferred over dictionaries?"
 description: "Learn when to choose lists instead of dictionaries: ordered processing, index access, and sequential data scenarios."
-tags:
-  - python
-  - lists
-  - use-cases
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, use-cases
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

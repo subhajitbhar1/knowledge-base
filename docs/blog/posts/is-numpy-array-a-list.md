@@ -1,10 +1,13 @@
 ---
 title: "Is a NumPy array a list?"
 description: "Understand the key differences between NumPy arrays and Python lists: performance, types, and when to use each."
-tags:
-  - python
-  - lists
-  - numpy
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, numpy
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

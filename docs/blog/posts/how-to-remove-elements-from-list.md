@@ -1,10 +1,13 @@
 ---
 title: "How do I remove elements from a Python list?"
 description: "Complete guide to removing list items: remove(), pop(), del, clear(), and filtering techniques with performance comparisons."
-tags:
-  - python
-  - lists
-  - manipulation
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, manipulation
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

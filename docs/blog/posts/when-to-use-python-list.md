@@ -1,10 +1,13 @@
 ---
 title: "When should you use a Python list?"
 description: "Discover the ideal use cases for Python lists: when they excel and when other data structures are better choices."
-tags:
-  - python
-  - lists
-  - use-cases
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, use-cases
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

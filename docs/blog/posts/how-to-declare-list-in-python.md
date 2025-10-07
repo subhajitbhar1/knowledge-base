@@ -1,10 +1,13 @@
 ---
 title: "How do I declare a list in Python?"
 description: "Learn the correct syntax for declaring lists in Python, from empty lists to pre-populated collections with type hints."
-tags:
-  - python
-  - lists
-  - creation
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, creation
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

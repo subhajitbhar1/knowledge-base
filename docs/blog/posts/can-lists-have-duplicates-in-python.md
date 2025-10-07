@@ -1,10 +1,13 @@
 ---
 title: "Can lists have duplicates in Python?"
 description: "Yes, Python lists allow duplicate values. Learn when duplicates are useful and how to remove them when needed."
-tags:
-  - python
-  - lists
-  - properties
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, properties
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

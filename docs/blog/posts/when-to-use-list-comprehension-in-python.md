@@ -1,10 +1,13 @@
 ---
 title: "When to use a list comprehension in Python?"
 description: "Learn when list comprehensions improve code: readability, performance benefits, and when to stick with regular loops."
-tags:
-  - python
-  - lists
-  - comprehension
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, comprehension
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

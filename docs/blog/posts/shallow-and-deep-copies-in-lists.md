@@ -1,10 +1,13 @@
 ---
 title: "How do shallow and deep copies work in Python lists?"
 description: "Master list copying: shallow vs deep copies, when each is needed, and how to avoid reference bugs with nested lists."
-tags:
-  - python
-  - lists
-  - copy
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, copy
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

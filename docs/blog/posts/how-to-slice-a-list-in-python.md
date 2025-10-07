@@ -1,10 +1,13 @@
 ---
 title: "How do you slice a list in Python?"
 description: "Master Python list slicing: syntax, step values, negative indices, and practical patterns for extracting sublists."
-tags:
-  - python
-  - lists
-  - indexing
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, indexing
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

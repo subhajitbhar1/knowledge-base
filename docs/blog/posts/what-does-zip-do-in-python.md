@@ -1,10 +1,13 @@
 ---
 title: "What does zip() do in Python?"
 description: "Learn how zip() pairs elements from multiple iterables, creates tuples, and enables parallel iteration over lists."
-tags:
-  - python
-  - lists
-  - functions
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, functions
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

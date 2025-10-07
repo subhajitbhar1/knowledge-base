@@ -1,10 +1,13 @@
 ---
 title: "Which is better — list or dictionary in Python?"
 description: "Neither is universally better. Learn the trade-offs and decision criteria for choosing lists vs dictionaries."
-tags:
-  - python
-  - lists
-  - comparison
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, comparison
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

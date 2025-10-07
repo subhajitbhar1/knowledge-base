@@ -1,10 +1,13 @@
 ---
 title: "What is a list in simple terms?"
 description: "Understand Python lists using everyday analogies—think of them as digital shopping lists that can hold any items in order."
-tags:
-  - python
-  - lists
-  - basics
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, basics
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

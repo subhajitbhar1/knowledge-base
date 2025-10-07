@@ -1,10 +1,13 @@
 ---
 title: "What does append() mean in Python?"
 description: "Understand the append() method: how it adds items to lists, its performance characteristics, and common mistakes to avoid."
-tags:
-  - python
-  - lists
-  - methods
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, methods
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

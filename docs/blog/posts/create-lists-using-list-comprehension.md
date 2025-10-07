@@ -1,10 +1,13 @@
 ---
 title: "How do you create lists using list comprehension?"
 description: "Master Python list comprehensions: syntax, filtering, nested loops, and when this concise pattern beats traditional loops."
-tags:
-  - python
-  - lists
-  - comprehension
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, comprehension
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

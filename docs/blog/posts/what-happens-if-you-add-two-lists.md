@@ -1,10 +1,13 @@
 ---
 title: "What happens if you add two lists in Python?"
 description: "Understand list concatenation with the + operator: how it combines lists, performance implications, and alternatives."
-tags:
-  - python
-  - lists
-  - concatenation
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, concatenation
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

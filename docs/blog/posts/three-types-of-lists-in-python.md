@@ -1,10 +1,13 @@
 ---
 title: "What are the three types of lists in Python?"
 description: "Understand list creation methods: literal lists, list() constructor, and list comprehensions—plus when to use each approach."
-tags:
-  - python
-  - lists
-  - types
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, types
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

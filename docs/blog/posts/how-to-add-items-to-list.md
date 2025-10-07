@@ -1,10 +1,13 @@
 ---
 title: "How do I add items to a Python list?"
 description: "Learn all methods to add items to lists: append(), insert(), extend(), and concatenation with examples and performance tips."
-tags:
-  - python
-  - lists
-  - manipulation
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, manipulation
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

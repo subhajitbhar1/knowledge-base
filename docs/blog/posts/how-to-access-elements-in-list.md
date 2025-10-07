@@ -1,10 +1,13 @@
 ---
 title: "How do you access elements in a Python list?"
 description: "Master list indexing: positive and negative indices, accessing first/last elements, and avoiding index errors."
-tags:
-  - python
-  - lists
-  - indexing
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, indexing
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

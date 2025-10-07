@@ -1,10 +1,13 @@
 ---
 title: "How do I start or initialize a list in Python?"
 description: "Quick guide to initializing Python lists: empty lists, pre-filled values, default sizes, and best practices for list setup."
-tags:
-  - python
-  - lists
-  - creation
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, creation
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

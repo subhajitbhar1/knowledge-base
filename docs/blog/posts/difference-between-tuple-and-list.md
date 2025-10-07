@@ -1,10 +1,13 @@
 ---
 title: "What is the difference between a tuple and a list?"
 description: "Compare Python tuples and lists: mutability, syntax, performance, and when to use each data structure in your code."
-tags:
-  - python
-  - lists
-  - comparison
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, comparison
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

@@ -1,10 +1,13 @@
 ---
 title: "What is the main benefit of using lists in Python?"
 description: "Understand why Python lists are powerful: flexibility, mutability, and versatility for most data collection tasks."
-tags:
-  - python
-  - lists
-  - advantages
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, advantages
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---

@@ -1,10 +1,13 @@
 ---
 title: "What is list() in Python?"
 description: "Understand the list() constructor function: how it converts iterables to lists and when to use it versus literal syntax."
-tags:
-  - python
-  - lists
-  - functions
+meta:
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, lists, functions
+  - name: Publisher
+    content: Subhajit Bhar
 date: 2025-10-07
 updated: "2025-10-07"
 ---
