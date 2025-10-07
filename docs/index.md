@@ -19,8 +19,8 @@ A curated collection of Python programming concepts explained clearly. Each topi
 ## Browse by Topic
 
 - [Python Lists](python-lists/index.md) - 34 in-depth articles
+- [Python Tuples](python-tuples/index.md) - 33 in-depth articles
 - [Python Dictionaries](#) - Coming soon
-- [Python Tuples](#) - Coming soon
 - [Python Sets](#) - Coming soon
 
 ---

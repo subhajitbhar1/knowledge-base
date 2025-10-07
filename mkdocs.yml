@@ -2,6 +2,19 @@ site_name: Knowledge Base
 site_description: A simple knowledge base blog
 site_author: Subhajit Bhar
 
+extra:
+  meta:
+    - name: google-site-verification
+      content: 1-1ZwmgYYVG5Ia5Fyzhax61cVRei91djOnMtacPe_9k
+    - name: author
+      content: Subhajit Bhar
+    - name: robots
+      content: index, follow
+    - name: keywords
+      content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, programming, tutorials
+    - name: Publisher
+      content: Subhajit Bhar
+
 theme:
   name: material
   palette:
