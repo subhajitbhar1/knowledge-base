@@ -38,6 +38,8 @@ theme:
     - search.highlight
     - content.code.copy
 
+extra_css:
+  - assets/stylesheets/custom.css
 plugins:
   - search
 
@@ -51,6 +53,9 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 2
 
-watch: 
-    - .
+watch:
+  - .

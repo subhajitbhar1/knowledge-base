@@ -19,7 +19,21 @@ updated: "2025-10-07"
 !!! info "In short"
     Yes. Tuples are completely immutable. Once you create a tuple, you cannot add elements, remove elements, or change what's at any position. No append, no pop, no item assignment. This is the defining feature of tuples—they're frozen sequences. That immutability is what makes them hashable (usable as dict keys and set members), faster than lists, and safer for passing around without fear of modification. If you need to "change" a tuple, you create a new one. Immutability is the whole point of tuples.
 
+<div class="toc" markdown="1">
+
+## Table of Contents
+
+- [Are tuples immutable?](#are-tuples-immutable)
+  - [Table of Contents](#table-of-contents)
+  - [What immutability means](#what-immutability-means)
+  - [Gotchas](#gotchas)
+  - [See also](#see-also)
+
+</div>
+
 Tuples are immutable, meaning they cannot be modified after creation.
+
+## What immutability means
 
 Every attempt to change a tuple fails with an error.
 

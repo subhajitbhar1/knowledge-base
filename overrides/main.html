@@ -6,6 +6,11 @@
 <meta name="author" content="Subhajit Bhar" />
 <meta name="robots" content="index, follow" />
 <meta name="keywords"
-    content="Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, programming, tutorials" />
+  content="Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, programming, tutorials" />
 <meta name="Publisher" content="Subhajit Bhar" />
+{% endblock %}
+
+{% block content %}
+{% include "partials/breadcrumbs.html" %}
+{{ super() }}
 {% endblock %}

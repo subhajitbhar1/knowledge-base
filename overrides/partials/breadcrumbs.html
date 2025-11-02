@@ -1,0 +1,17 @@
+{% if page and page.ancestors %}
+<nav class="md-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="md-breadcrumbs__list">
+    <li class="md-breadcrumbs__item">
+      <a href="{{ nav.homepage.url | url }}" class="md-breadcrumbs__link">{{ config.site_name }}</a>
+    </li>
+    {% for node in page.ancestors %}
+    <li class="md-breadcrumbs__item">
+      <a href="{{ node.url | url }}" class="md-breadcrumbs__link">{{ node.title }}</a>
+    </li>
+    {% endfor %}
+    <li class="md-breadcrumbs__item">
+      <span class="md-breadcrumbs__current" aria-current="page">{{ page.title }}</span>
+    </li>
+  </ol>
+</nav>
+{% endif %}
