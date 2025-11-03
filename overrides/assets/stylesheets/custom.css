@@ -90,7 +90,7 @@ body,
 
 /* Breadcrumbs Styling */
 .md-breadcrumbs {
-    padding: 0.75rem 0;
+    padding: 0.75rem 2rem;
     margin-bottom: 1.5rem;
     font-size: 0.8125rem;
     color: var(--md-default-fg-color--light);
@@ -100,24 +100,24 @@ body,
 .md-breadcrumbs__list {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 0.375rem;
+    gap: 0.25rem;
 }
 
 .md-breadcrumbs__item {
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
 }
 
 .md-breadcrumbs__item:not(:last-child)::after {
     content: "›";
-    margin-left: 0.625rem;
-    margin-right: 0.375rem;
+    margin-left: 0.375rem;
+    margin-right: 0.25rem;
     color: var(--md-default-fg-color--lighter);
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -140,11 +140,14 @@ body,
     padding: 0.125rem 0.25rem;
 }
 
-/* Page Title Styling */
+/* Page Title Styling - H1 with bold underline */
 .md-content h1 {
     color: var(--md-typeset-color);
     font-weight: 700 !important;
     opacity: 1 !important;
+    border-bottom: 3px solid var(--md-default-fg-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Hyperlink Styling */
@@ -156,18 +159,84 @@ body,
     text-decoration-thickness: 1px;
 }
 
-/* Section Title Styling */
-.md-content h2,
+/* H2 with thin underline */
+.md-content h2 {
+    border-bottom: 1px solid var(--md-default-fg-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* H3, H4, H5, H6 - no underline, keep as is */
 .md-content h3,
 .md-content h4,
 .md-content h5,
 .md-content h6 {
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
-    padding-bottom: 0.5rem;
+    border-bottom: none;
+    padding-bottom: 0;
     margin-bottom: 1rem;
 }
 
-.md-content h2,
 .md-content h3 {
     font-weight: 700;
+}
+
+/* Hide both left and right sidebars */
+.md-sidebar--primary {
+    display: none;
+}
+
+.md-sidebar--secondary {
+    display: none;
+}
+
+/* Ensure the grid container uses full width */
+.md-grid {
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Make main container use full width */
+.md-main {
+    width: 100%;
+}
+
+.md-main__inner {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Center content with 20-60-20 layout */
+.md-content {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Content takes 60% width with 20% white space on each side */
+.md-content__inner {
+    width: 60%;
+    max-width: 60%;
+    margin: 0 auto !important;
+    padding: 0 2rem;
+}
+
+/* Optional: Adjust for smaller screens */
+@media screen and (max-width: 1200px) {
+    .md-content__inner {
+        width: 80%;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .md-content__inner {
+        width: 90%;
+        max-width: 90%;
+        padding: 0 1rem;
+    }
+
+    .md-breadcrumbs {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
