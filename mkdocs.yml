@@ -41,8 +41,8 @@ theme:
     # - navigation.tabs
     # - navigation.tabs.sticky
     # - navigation.footer
-    - navigation.indexes
-    - navigation.instant
+    # - navigation.indexes
+    # - navigation.instant
   # - navigation.top
   # - navigation.tracking
 extra_css:
