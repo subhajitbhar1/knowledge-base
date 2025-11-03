@@ -24,8 +24,8 @@ def get_title_from_md(file_path: Path) -> str | None:
                 if line.startswith("# "):
                     return line.replace("# ", "").strip()
     except Exception as e:
-        print(f"Error getting title from {file_path}: {e}")
-        raise e
+        msg = f"Error getting title from {file_path}: {e}"
+        raise ValueError(msg) from e
 
     return None
 
@@ -167,14 +167,14 @@ def update_mkdocs_config(nav_structure: list):
     mkdocs_file = Path("mkdocs.yml")
 
     # Read existing config
-    with open(mkdocs_file, encoding="utf-8") as f:
+    with Path(mkdocs_file).open(encoding="utf-8") as f:
         config = yaml.safe_load(f)
 
     # Update nav
     config["nav"] = nav_structure
 
     # Write back to file
-    with open(mkdocs_file, "w", encoding="utf-8") as f:
+    with Path(mkdocs_file).open("w", encoding="utf-8") as f:
         yaml.dump(
             config,
             f,
