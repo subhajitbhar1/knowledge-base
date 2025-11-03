@@ -2,60 +2,168 @@ site_name: Knowledge Base
 site_url: https://kb.subhajitbhar.com/
 site_description: A simple knowledge base blog
 site_author: Subhajit Bhar
-
 extra:
   meta:
-    - name: author
-      content: Subhajit Bhar
-    - name: robots
-      content: index, follow
-    - name: keywords
-      content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, programming, tutorials
-    - name: Publisher
-      content: Subhajit Bhar
-
+  - name: author
+    content: Subhajit Bhar
+  - name: robots
+    content: index, follow
+  - name: keywords
+    content: Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge
+      base, python, programming, tutorials
+  - name: Publisher
+    content: Subhajit Bhar
 theme:
   name: material
   custom_dir: overrides
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  - scheme: default
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    primary: indigo
+    accent: indigo
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
   features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-
+  - content.code.annotate
+  - content.code.copy
+  - content.tooltips
+  - search.suggest
+  - search.highlight
+  - search.share
+  - toc.follow
+  - navigation.tabs
+  - navigation.tabs.sticky
+  # - navigation.footer
+  - navigation.indexes
+  - navigation.instant
+  - navigation.top
+  - navigation.tracking
 extra_css:
-  - assets/stylesheets/custom.css
+- assets/stylesheets/custom.css
 plugins:
-  - search
-
+- search
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - admonition
-  - pymdownx.details
-  - attr_list
-  - md_in_html
-  - toc:
-      permalink: true
-      toc_depth: 2
-
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.superfences
+- pymdownx.tasklist:
+    custom_checkbox: true
+- admonition
+- pymdownx.details
+- attr_list
+- md_in_html
 watch:
-  - .
+- .
+copyright: Copyright &copy; 2025 Subhajit Bhar
+nav:
+- Home: index.md
+- Python Articles:
+  - python.md
+  - Async:
+    - python-async/index.md
+    - python-async/can-init-be-async-in-python.md
+    - python-async/can-python-be-multithreaded.md
+    - python-async/how-async-works-in-python.md
+    - python-async/how-to-await-multiple-async-tasks-in-python.md
+    - python-async/how-to-call-an-async-function-in-python.md
+    - python-async/how-to-cancel-async-tasks-in-python.md
+    - python-async/how-to-create-async-functions-in-python.md
+    - python-async/how-to-debug-async-python-code.md
+    - python-async/how-to-use-async-await-in-python.md
+    - python-async/how-to-use-async-generator-in-python.md
+    - python-async/how-to-use-asyncio-in-python.md
+    - python-async/is-asyncio-faster-than-threading.md
+    - python-async/is-asyncio-part-of-python.md
+    - python-async/is-foreach-async-in-python.md
+    - python-async/is-javascript-async-like-python.md
+    - python-async/is-python-asynchronous.md
+    - python-async/is-python-single-threaded.md
+    - python-async/is-python-synchronous-or-asynchronous.md
+    - python-async/what-does-async-do-in-python.md
+    - python-async/what-is-a-decorator-in-python-async.md
+    - python-async/what-is-async-and-await-in-python.md
+    - python-async/what-is-async-def-in-python.md
+    - python-async/what-is-async-function-in-python.md
+    - python-async/what-is-async-in-python.md
+    - python-async/what-is-asyncio-in-python.md
+    - python-async/which-is-better-threading-or-asyncio.md
+    - python-async/why-use-async-await-in-python.md
+    - python-async/why-use-async-in-python.md
+    - python-async/why-use-asyncio-in-python.md
+  - Lists:
+    - python-lists/index.md
+    - python-lists/are-lists-or-dictionaries-faster.md
+    - python-lists/can-lists-have-duplicates-in-python.md
+    - python-lists/create-lists-using-list-comprehension.md
+    - python-lists/difference-between-tuple-and-list.md
+    - python-lists/disadvantages-of-using-lists-in-python.md
+    - python-lists/how-to-access-elements-in-list.md
+    - python-lists/how-to-add-items-to-list.md
+    - python-lists/how-to-create-list-in-python.md
+    - python-lists/how-to-declare-list-in-python.md
+    - python-lists/how-to-initialize-list-in-python.md
+    - python-lists/how-to-iterate-over-a-list.md
+    - python-lists/how-to-remove-elements-from-list.md
+    - python-lists/how-to-slice-a-list-in-python.md
+    - python-lists/how-to-sort-list-in-python.md
+    - python-lists/is-list-a-data-type-in-python.md
+    - python-lists/is-numpy-array-a-list.md
+    - python-lists/list-mutability-and-performance.md
+    - python-lists/list-vs-tuple-vs-dictionary-vs-set.md
+    - python-lists/main-benefit-of-using-lists-in-python.md
+    - python-lists/purpose-of-using-list-in-python.md
+    - python-lists/shallow-and-deep-copies-in-lists.md
+    - python-lists/three-types-of-lists-in-python.md
+    - python-lists/what-does-append-mean-in-python.md
+    - python-lists/what-does-zip-do-in-python.md
+    - python-lists/what-happens-if-you-add-two-lists.md
+    - python-lists/what-is-a-list-in-simple-terms.md
+    - python-lists/what-is-a-python-list.md
+    - python-lists/what-is-list-function-in-python.md
+    - python-lists/what-is-negative-one-in-list.md
+    - python-lists/when-are-lists-preferred-over-dictionaries.md
+    - python-lists/when-to-use-list-comprehension-in-python.md
+    - python-lists/when-to-use-python-list.md
+    - python-lists/when-to-use-tuple-instead-of-list.md
+    - python-lists/which-is-better-list-or-dictionary.md
+  - Tuples:
+    - python-tuples/index.md
+    - python-tuples/advantages-of-tuple-over-list.md
+    - python-tuples/are-tuples-immutable.md
+    - python-tuples/can-i-make-an-empty-tuple.md
+    - python-tuples/can-tuples-have-duplicates.md
+    - python-tuples/can-you-unpack-a-python-tuple.md
+    - python-tuples/convert-tuple-to-list.md
+    - python-tuples/difference-between-tuple-and-list.md
+    - python-tuples/disadvantages-of-list-in-python.md
+    - python-tuples/does-tuple-keep-order-in-python.md
+    - python-tuples/does-tuple-use-brackets.md
+    - python-tuples/example-of-a-tuple.md
+    - python-tuples/how-to-turn-list-into-tuple.md
+    - python-tuples/how-to-write-a-tuple-in-python.md
+    - python-tuples/is-a-tuple-a-row-or-column.md
+    - python-tuples/is-a-tuple-an-object-or-string.md
+    - python-tuples/is-a-tuple-just-an-array.md
+    - python-tuples/is-dict-mutable-in-python.md
+    - python-tuples/is-python-list-ordered-or-unordered.md
+    - python-tuples/is-tuple-faster-than-array.md
+    - python-tuples/is-tuple-or-list-faster.md
+    - python-tuples/main-differences-between-list-and-tuple.md
+    - python-tuples/practical-uses-of-tuples-in-python.md
+    - python-tuples/tuple-vs-array-in-python.md
+    - python-tuples/what-cannot-have-duplicates-in-python.md
+    - python-tuples/what-does-tuple-function-do.md
+    - python-tuples/what-is-a-tuple-for-dummies.md
+    - python-tuples/what-is-a-tuple-in-python.md
+    - python-tuples/what-is-called-a-tuple-in-python.md
+    - python-tuples/what-is-slicing-in-python.md
+    - python-tuples/what-is-the-tuple-for-5.md
+    - python-tuples/when-should-i-use-a-tuple.md
+    - python-tuples/which-of-the-following-is-a-python-tuple.md
+    - python-tuples/why-use-tuple-instead-of-list.md

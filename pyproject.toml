@@ -10,5 +10,6 @@ dependencies = [
     "mkdocs-material[imaging]>=9.6.20",
     "mkdocs-rss-plugin>=1.17.3",
     "pillow>=11.3.0",
+    "pyyaml>=6.0",
     "urllib3>=2.5.0",
 ]

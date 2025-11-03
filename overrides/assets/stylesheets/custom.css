@@ -150,6 +150,10 @@ body,
 /* Hyperlink Styling */
 .md-content a {
     text-decoration: underline !important;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 1px;
 }
 
 /* Section Title Styling */

@@ -1,6 +1,6 @@
 ---
-title: Python Knowledge Base
-description: Comprehensive guide to Python concepts with clear explanations and practical examples
+title: Knowledge Base
+description: Comprehensive notes on Python, Machine Learning, Data Science, and more
 meta:
   - name: robots
     content: index, follow
@@ -10,40 +10,15 @@ meta:
     content: Subhajit Bhar
 ---
 
-# Python Knowledge Base
+# Knowledge Base
 
-A curated collection of Python programming concepts explained clearly. Each topic is answered with practical examples, common gotchas, and best practices.
+## Summary
 
----
+- [List of Python topics](python.md)
+
 
 ## Browse by Topic
-
-- [Python Lists](python-lists/index.md) - 34 in-depth articles
-- [Python Tuples](python-tuples/index.md) - 33 in-depth articles
-- [Python Async & Asyncio](python-async/index.md) - 29 in-depth articles
-- [Python Dictionaries](#) - Coming soon
-- [Python Sets](#) - Coming soon
-
----
-
-## What's Inside?
-
-Each topic contains:
-
-- Clear explanations - Complex concepts explained simply
-- Practical examples - Runnable Python code with outputs
-- Common gotchas - Learn from typical mistakes
-- Best practices - When to use (and when not to use)
-- Performance tips - Trade-offs and optimization insights
-
----
-
-## Quick Search
-
-Use the search bar above to find specific topics across all articles.
-
----
-
-<div style="text-align: center; padding: 2rem 0; color: #666;">
-  <p><em>More topics coming soon. This knowledge base is continuously growing.</em></p>
-</div>
+- [Python](python.md)
+    - [Python Lists](python-lists/index.md)
+    - [Python Tuples](python-tuples/index.md)
+    - [Python Async & Asyncio](python-async/index.md)
