@@ -61,6 +61,7 @@ Everything you need to know about Python lists - from basics to advanced concept
 - [How do you access elements in a Python list?](how-to-access-elements-in-list.md)
 - [What is [-1] in a Python list?](what-is-negative-one-in-list.md)
 - [How do you slice a list in Python?](how-to-slice-a-list-in-python.md)
+- [How to Slice a List in Python?](python-list-slice.md)
 - [How do you iterate over a list in Python?](how-to-iterate-over-a-list.md)
 
 ---
