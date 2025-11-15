@@ -1,0 +1,258 @@
+/* Import IBM Plex Sans */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Apply IBM Plex Sans to entire site with generous spacing */
+body,
+.md-typeset {
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+/* Generous paragraph spacing */
+.md-typeset p {
+    margin-bottom: 1.5rem;
+}
+
+/* Spacious list items */
+.md-typeset ul,
+.md-typeset ol {
+    margin-bottom: 1.5rem;
+}
+
+.md-typeset li {
+    margin-bottom: 0.5rem;
+}
+
+/* More breathing room for headings */
+.md-typeset h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.md-typeset h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Spacious code blocks and admonitions */
+.md-typeset pre,
+.md-typeset .admonition {
+    margin-bottom: 1.5rem;
+}
+
+/* Table of Contents Styling */
+.toc {
+    border: 0.2px solid var(--md-default-fg-color--lightest);
+    background-color: #fafafa;
+    padding: 1.5rem 1rem;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+    max-width: fit-content;
+    display: inline-block;
+}
+
+.toc h2,
+.toc h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--md-default-fg-color);
+}
+
+.toc ul {
+    list-style: disc;
+    margin: 0;
+    margin-left: 0.5rem;
+}
+
+.toc ul ul {
+    list-style: circle;
+    margin-left: 1.5rem;
+}
+
+.toc li {
+    margin-bottom: 0.5rem;
+}
+
+.toc a {
+    color: var(--md-default-fg-color);
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+
+.toc a:hover {
+    color: var(--md-accent-fg-color);
+}
+
+/* Breadcrumbs Styling */
+.md-breadcrumbs {
+    padding: 0.75rem 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.8125rem;
+    color: var(--md-default-fg-color--light);
+    letter-spacing: 0.01em;
+}
+
+.md-breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.25rem;
+}
+
+.md-breadcrumbs__item {
+    display: inline-flex;
+    align-items: baseline;
+}
+
+.md-breadcrumbs__item:not(:last-child)::after {
+    content: "›";
+    margin-left: 0.375rem;
+    margin-right: 0.25rem;
+    color: var(--md-default-fg-color--lighter);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.md-breadcrumbs__link {
+    color: var(--md-default-fg-color--light);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.md-breadcrumbs__link:hover {
+    color: var(--md-accent-fg-color);
+    background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-breadcrumbs__current {
+    color: var(--md-default-fg-color);
+    font-weight: 600;
+    padding: 0.125rem 0.25rem;
+}
+
+/* Page Title Styling - H1 with bold underline */
+.md-content h1 {
+    color: var(--md-typeset-color);
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    border-bottom: 3px solid var(--md-default-fg-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Hyperlink Styling */
+.md-content a {
+    text-decoration: underline !important;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 1px;
+}
+
+/* Remove underlines from TOC links specifically */
+.md-content .toc a {
+    text-decoration: none !important;
+}
+
+/* H2 with thin underline */
+.md-content h2 {
+    border-bottom: 2px solid var(--md-default-fg-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* H3, H4, H5, H6 - no underline, keep as is */
+.md-content h3 {
+    border-bottom: 1px solid var(--md-default-fg-color);
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.md-content h4,
+.md-content h5,
+.md-content h6 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+}
+
+.md-content .toc h2 {
+    border-bottom: 1px solid var(--md-default-fg-color);
+}
+
+/* Hide both left and right sidebars */
+.md-sidebar--primary {
+    display: none;
+}
+
+.md-sidebar--secondary {
+    display: none;
+}
+
+/* Ensure the grid container uses full width */
+.md-grid {
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Make main container use full width */
+.md-main {
+    width: 100%;
+}
+
+.md-main__inner {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* Center content with 20-60-20 layout */
+.md-content {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Content takes 60% width with 20% white space on each side */
+.md-content__inner {
+    width: 60%;
+    max-width: 60%;
+    margin: 0 auto !important;
+    padding: 0 2rem;
+}
+
+/* Optional: Adjust for smaller screens */
+@media screen and (max-width: 1200px) {
+    .md-content__inner {
+        width: 80%;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .md-content__inner {
+        width: 90%;
+        max-width: 90%;
+        padding: 0 1rem;
+    }
+
+    .md-breadcrumbs {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
