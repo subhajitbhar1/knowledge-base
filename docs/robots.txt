@@ -32,3 +32,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+Disallow: /cdn-cgi/
+
