@@ -1,0 +1,3084 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tuples are faster to create and iterate. Lists are faster for operations like append. Choose by use case, not speed.">
+      
+      
+        <meta name="author" content="Subhajit Bhar">
+      
+      
+        <link rel="canonical" href="https://kb.subhajitbhar.com/python-tuples/is-tuple-or-list-faster/">
+      
+      
+        <link rel="prev" href="../is-tuple-faster-than-array/">
+      
+      
+        <link rel="next" href="../main-differences-between-list-and-tuple/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Is tuple or list faster? - Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-54TCJMJ3');</script>
+<!-- End Google Tag Manager -->
+
+      
+
+    
+
+    
+      
+        <meta  name="robots"  content="index, follow" >
+      
+        <meta  name="keywords"  content="Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, tuple, performance" >
+      
+        <meta  name="Publisher"  content="Subhajit Bhar" >
+      
+    
+    
+
+<meta name="google-site-verification" content="1-1ZwmgYYVG5Ia5Fyzhax61cVRei91djOnMtacPe_9k" />
+<meta name="author" content="Subhajit Bhar" />
+<meta name="robots" content="index, follow" />
+<meta name="keywords"
+  content="Subhajit Bhar, freelance data scientist, OCR, NLP, LLM, RAG, knowledge base, python, programming, tutorials" />
+<meta name="Publisher" content="Subhajit Bhar" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#is-tuple-or-list-faster" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54TCJMJ3" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Knowledge Base" class="md-header__button md-logo" aria-label="Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Is tuple or list faster?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Knowledge Base" class="md-nav__button md-logo" aria-label="Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Knowledge Base
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Knowledge Base
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../disclaimer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disclaimer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disclaimer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Articles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python async
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Python async
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Async & Asyncio - Complete Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/can-init-be-async-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can __init__ be async in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/can-python-be-multithreaded/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can Python be multithreaded?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-async-works-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How async works in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-await-multiple-async-tasks-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to await multiple async tasks in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-call-an-async-function-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to call an async function in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-cancel-async-tasks-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to cancel async tasks in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-create-async-functions-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create async functions in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-debug-async-python-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to debug async Python code?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-use-async-await-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use async await in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-use-async-generator-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use async generator in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/how-to-use-asyncio-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use asyncio in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-asyncio-faster-than-threading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is asyncio faster than threading?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-asyncio-part-of-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is asyncio part of Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-foreach-async-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is foreach async in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-javascript-async-like-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is JavaScript async like Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-python-asynchronous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is Python asynchronous?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-python-single-threaded/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is Python single threaded?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/is-python-synchronous-or-asynchronous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is Python synchronous or asynchronous?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-does-async-do-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What does async do in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-is-a-decorator-in-python-async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a decorator in Python (in async context)?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-is-async-and-await-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is async and await in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-is-async-def-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is async def in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-is-async-function-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is async function in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-is-async-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is async in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/what-is-asyncio-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is asyncio in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/which-is-better-threading-or-asyncio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Which is better threading or asyncio in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/why-use-async-await-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Why use async await in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/why-use-async-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Why use async in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-async/why-use-asyncio-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Why use asyncio in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python lists
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Python lists
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Lists - Complete Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/are-lists-or-dictionaries-faster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Are lists or dictionaries faster in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/can-lists-have-duplicates-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can lists have duplicates in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/create-lists-using-list-comprehension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you create lists using list comprehension?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/difference-between-tuple-and-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is the difference between a tuple and a list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/disadvantages-of-using-lists-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are the disadvantages of using lists in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-access-elements-in-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you access elements in a Python list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-add-items-to-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do I add items to a Python list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-create-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you create a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-declare-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do I declare a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-initialize-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do I start or initialize a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-iterate-over-a-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you iterate over a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-remove-elements-from-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do I remove elements from a Python list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-slice-a-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you slice a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/how-to-sort-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do I sort a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/is-list-a-data-type-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is a list a data type in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/is-numpy-array-a-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is a NumPy array a list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/list-mutability-and-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How does list mutability affect performance?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/list-vs-tuple-vs-dictionary-vs-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    When to use list vs tuple vs dictionary vs set in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/main-benefit-of-using-lists-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is the main benefit of using lists in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/purpose-of-using-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is the purpose of using a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/python-list-slice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Slice a List in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/shallow-and-deep-copies-in-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do shallow and deep copies work in Python lists?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/three-types-of-lists-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are the three types of lists in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-does-append-mean-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What does append() mean in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-does-zip-do-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What does zip() do in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-happens-if-you-add-two-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What happens if you add two lists in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-is-a-list-in-simple-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a list in simple terms?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-is-a-python-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a Python list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-is-list-function-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is list() in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/what-is-negative-one-in-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is [-1] in a Python list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/when-are-lists-preferred-over-dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    In what situations are lists preferred over dictionaries?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/when-to-use-list-comprehension-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    When to use a list comprehension in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/when-to-use-python-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    When should you use a Python list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/when-to-use-tuple-instead-of-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    When would you use a tuple instead of a list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-lists/which-is-better-list-or-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Which is better — list or dictionary in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python tuples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Python tuples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Tuples - Complete Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advantages-of-tuple-over-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are the advantages of a tuple over a list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../are-tuples-immutable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Are tuples immutable?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../can-i-make-an-empty-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can I make an empty tuple?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../can-tuples-have-duplicates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can tuples have duplicates?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../can-you-unpack-a-python-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can you unpack a Python tuple?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-tuple-to-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can I convert a tuple to a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../difference-between-tuple-and-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is the difference between a tuple and a list?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disadvantages-of-list-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are the disadvantages of list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../does-tuple-keep-order-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Does tuple keep order in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../does-tuple-use-brackets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Does a tuple use brackets?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-of-a-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is an example of a tuple?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-turn-list-into-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do I turn a list into a tuple?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-write-a-tuple-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you write a tuple in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is-a-tuple-a-row-or-column/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is a tuple a row or column?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is-a-tuple-an-object-or-string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is a tuple an object or a string?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is-a-tuple-just-an-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is a tuple just an array?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is-dict-mutable-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is dict mutable in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is-python-list-ordered-or-unordered/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is Python list ordered or unordered?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../is-tuple-faster-than-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is a tuple faster than an array?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Is tuple or list faster?
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Is tuple or list faster?
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gotchas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See also
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../main-differences-between-list-and-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are the main differences between list and tuple in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practical-uses-of-tuples-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What are the practical uses of tuples in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuple-vs-array-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a tuple vs array in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-cannot-have-duplicates-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What cannot have duplicates in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-does-tuple-function-do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What does the tuple() function do?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-a-tuple-for-dummies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a tuple for dummies?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-a-tuple-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a tuple in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-called-a-tuple-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is called a tuple in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-slicing-in-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is slicing in python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-the-tuple-for-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is the tuple for 5?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../when-should-i-use-a-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    When should I use a tuple?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../which-of-the-following-is-a-python-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Which of the following is a Python tuple (4 5 6 4 5 6 4 5 6 {})?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../why-use-tuple-instead-of-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Why might you choose to use a tuple instead of a list in Python?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gotchas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gotchas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      See also
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+<nav class="md-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="md-breadcrumbs__list">
+    <li class="md-breadcrumbs__item">
+      <a href="../.." class="md-breadcrumbs__link">Knowledge Base</a>
+    </li>
+    
+    <li class="md-breadcrumbs__item">
+      <a href="../.." class="md-breadcrumbs__link">Python tuples</a>
+    </li>
+    
+    <li class="md-breadcrumbs__item">
+      <span class="md-breadcrumbs__current" aria-current="page">Is tuple or list faster?</span>
+    </li>
+  </ol>
+</nav>
+
+
+                  
+
+
+
+<h1 id="is-tuple-or-list-faster">Is tuple or list faster?</h1>
+<!-- more -->
+
+<div class="admonition info">
+<p class="admonition-title">In short</p>
+<p>Tuples are faster to create (~2-3x) and slightly faster to iterate over. Lists are faster for append/remove operations. But honestly? The difference is negligible for most use cases (&lt;1000 elements). Tuples win on creation because Python can optimize immutable objects better—constant folding, reuse, less memory allocation. Lists need extra space for growth. Choose tuples for semantics (immutability) and hashability, not micro-optimization. If you're creating millions of small sequences in a tight loop, tuples are measurably faster. Otherwise, pick what makes your code clearer.</p>
+</div>
+<p>Tuples are generally faster, but the reasons matter more than the raw speed.</p>
+<p>The performance advantage comes from immutability.</p>
+<p>In the following example, we compare creation and iteration speed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Creation speed</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">tuple_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;(1, 2, 3, 4, 5)&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">list_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;[1, 2, 3, 4, 5]&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tuple creation: </span><span class="si">{</span><span class="n">tuple_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List creation: </span><span class="si">{</span><span class="n">list_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tuples are </span><span class="si">{</span><span class="n">list_time</span><span class="o">/</span><span class="n">tuple_time</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x faster</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Iteration speed (minimal difference)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">tuple_iter</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="s2">&quot;for x in (1, 2, 3, 4, 5): pass&quot;</span><span class="p">,</span> 
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">list_iter</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="s2">&quot;for x in [1, 2, 3, 4, 5]: pass&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tuple iteration: </span><span class="si">{</span><span class="n">tuple_iter</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List iteration: </span><span class="si">{</span><span class="n">list_iter</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># But lists are faster for modifications</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tuple size: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List size: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Tuples create faster (often 2-3x) because Python doesn't need to over-allocate space for growth. Iteration is comparable. Lists use more memory because they reserve space for future appends.</p>
+<p>But if you're appending constantly, lists win—tuples need to create entirely new tuples each time.</p>
+<h2 id="gotchas">Gotchas</h2>
+<ul>
+<li><strong>Small differences</strong> — for everyday code with &lt;100 elements, you won't notice the speed difference. Don't choose based on this alone.</li>
+<li><strong>Context matters</strong> — creating tuples in a hot loop (millions of times)? Measurable win. Occasional use? Irrelevant.</li>
+<li><strong>Lists have methods</strong> — the speed of <code>list.append()</code> vs tuple concatenation <code>t + (new_item,)</code> is huge. Lists win for dynamic operations.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../advantages-of-tuple-over-list/">What are the advantages of a tuple over a list?</a></li>
+<li><a href="../is-tuple-faster-than-array/">Is a tuple faster than an array?</a></li>
+<li>External: <a href="https://wiki.python.org/moin/TimeComplexity">https://wiki.python.org/moin/TimeComplexity</a></li>
+</ul>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is tuple or list faster?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tuples are faster to create (~2-3x) and slightly faster to iterate over. Lists are faster for append/remove operations. The difference is negligible for most use cases. Choose tuples for semantics (immutability) and hashability, not micro-optimization."
+    }
+  }]
+}
+</script>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <!-- Footer Section -->
+
+<hr style="margin: 40px auto; width: 80%; border: 0; border-top: 1px solid #ccc;">
+<div style="text-align: center; padding: 10px 0;">
+  <span style="margin: 0 10px;"><a href="/disclaimer/">Disclaimer</a></span>
+  <span style="margin: 0 10px;"><a href="/privacy-policy/">Privacy policy</a></span>
+  <span style="margin: 0 10px;">Copyright &copy; 2025 Subhajit Bhar</span>
+</div>
+
+
+<!-- Embedded CSS for Hover Effects -->
+<style>
+  /* Container Styling */
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0 50px 0;
+  }
+
+  /* Common Link Styling */
+  .icon-link {
+    font-size: 3.5em;
+    color: #000;
+    /* Set default color to black */
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Remove individual color assignments from default state */
+  /* Individual Icon Colors on Hover */
+  .github:hover {
+    color: #333;
+    /* Original GitHub Color (adjust if needed) */
+  }
+
+  .twitter:hover {
+    color: #1da1f2;
+    /* Twitter Original Color */
+  }
+
+  .linkedin:hover {
+    color: #0077b5;
+    /* LinkedIn Original Color */
+  }
+
+  .email:hover {
+    color: #d44638;
+    /* Email Original Color */
+  }
+
+  /* Hover Effects */
+  .icon-link:hover {
+    transform: scale(1.2);
+  }
+
+  /* Optional: Remove focus outline for better aesthetics */
+  .icon-link:focus {
+    outline: none;
+  }
+</style>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
